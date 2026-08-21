@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-gold: #e0e0e0;
+  --color-brand-silver: #999999;
+  --color-brand-dark: #050505;
+  --color-brand-darker: #020202;
+  --color-brand-light: #ffffff;
+
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
+}
+
+:root {
+  --background: #050505;
+  --foreground: #ffffff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  position: relative;
+}
+
+/* Film grain/noise texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  z-index: 50;
+  opacity: 0.3;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #666666;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+/* Utility for glowing accents */
+.glow-gold {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+.glow-silver {
+  box-shadow: 0 0 15px rgba(216, 216, 216, 0.4);
+}

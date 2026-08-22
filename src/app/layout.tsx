@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CartSidebar from "@/components/CartSidebar";
+import FloatingChatButton from "@/components/FloatingChatButton";
 import { CartProvider } from "@/components/CartProvider";
 
 const inter = Inter({
@@ -17,7 +18,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "LUMEN | Nocturnal Elegance - Premium Luxury Sneakers",
+  title: "LUMEN",
   description: "Discover the exclusive LUMEN sneaker vault. Shop limited edition, ultra-premium footwear designed for nocturnal elegance and bespoke fitting.",
   keywords: ["luxury sneakers", "lumen", "premium footwear", "exclusive shoes", "nocturnal elegance", "bespoke sneakers"],
   openGraph: {
@@ -45,6 +46,7 @@ export default function RootLayout({
         <CartProvider>
           <Navbar />
           <CartSidebar />
+          <FloatingChatButton />
           <main className="flex-1">
             {children}
           </main>
